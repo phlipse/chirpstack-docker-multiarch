@@ -25,17 +25,17 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Get latest chirpstack-gateway-bridge release tag
-            id: chirpstack-gateway-bridge-release
+            id: chirpstack-gateway-bridge-latest
             uses: pozetroninc/github-action-get-latest-release@master
             with:
               repository: brocaar/chirpstack-gateway-bridge
               excludes: prerelease, draft
         
-          - name: Check-out chirpstack-gateway-bridge-release
+          - name: Check-out chirpstack-gateway-bridge-latest
             uses: actions/checkout@v2
             with:
                 repository: brocaar/chirpstack-gateway-bridge
-                ref: ${{ steps.chirpstack-gateway-bridge-release.outputs.release }}
+                ref: ${{ steps.chirpstack-gateway-bridge-latest.outputs.release }}
 
           - name: Modify dockerfile for multiarch builds
             run: |
@@ -64,4 +64,4 @@ jobs:
                 context: .
                 platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
                 push: true
-                tags: ${{ secrets.DOCKER_USERNAME }}/chirpstack-gateway-bridge:${{ steps.chirpstack-gateway-bridge-release.outputs.release }}
+                tags: ${{ secrets.DOCKER_USERNAME }}/chirpstack-gateway-bridge:${{ steps.chirpstack-gateway-bridge-latest.outputs.release }}
