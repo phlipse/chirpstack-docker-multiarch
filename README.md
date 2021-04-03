@@ -1,5 +1,5 @@
 # chirpstack-docker-multiarch
-Multiarch build of [official chirpstack-docker repository](https://github.com/brocaar/chirpstack-docker).
+Multiarch builds of [official chirpstack repositories](https://www.chirpstack.io/).
 
 ## Supported ChirpStack components
 - chirpstack-gateway-bridge
