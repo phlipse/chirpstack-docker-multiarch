@@ -4,6 +4,7 @@ Multiarch build of [official chirpstack-docker repository](https://github.com/br
 ## Supported ChirpStack components
 - chirpstack-gateway-bridge
 - chirpstack-network-server
+- chirpstack-application-server
 
 ## Supported platforms
 - linux/amd64
